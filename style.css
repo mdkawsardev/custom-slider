@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 18px;
+    position: relative;
+}
+
+header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+ul {
+    display: flex;
+    justify-content: center;
+}
+ul li {
+    padding: 15px 20px;
+    list-style: none;
+}
+ul li a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.parent {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    top: -50px;
+    overflow: hidden;
+}
+
+.parent .slider .item {
+    position: absolute;
+}
+
+.parent .slider .item .img {
+    width: 100vw;
+    height: 100vh;
+    animation: showImage .5s linear 1 forwards;
+    opacity: 0;
+}
+
+@keyframes showImage {
+    100% {
+        opacity: 1;
+    }
+}
+
+.parent .slider .item .img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.parent .slider .item .title {
+    width: 500px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10%;
+}
+
+.item .title h2 {
+    font-family: sans-serif;
+    font-size: 55px;
+    font-weight: bold;
+    color: #ffffff;
+}
+.item .title p {
+    margin: 20px 0;
+}
+.item .title .buttons {
+    display: flex;
+    gap: 20px;
+}
+.item .title .buttons button {
+    padding: 15px 25px;
+    border: 1px solid #ffffff;
+    outline: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 10px;
+}
+
+.item .title .buttons button:last-child {
+    background: transparent;
+    color: #ffffff;
+}
+
+.item .title h2,
+.item .title p,
+.item .title .buttons {
+    transform: rotateZ(45deg);
+    -webkit-filter: blur(20px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent .5s linear 1 forwards;
+}
+
+.next {
+    transform: rotateZ(45deg);
+    -webkit-filter: blur(20px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: nextContent .5s linear 1 forwards;
+}
+
+@keyframes nextContent {
+    100% {
+        transform: rotateZ(0deg);
+        -webkit-filter: blur(0);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+@keyframes showContent {
+    100% {
+        transform: rotateZ(0deg);
+        -webkit-filter: blur(0);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+.arrows {
+    position: absolute;
+    display: flex;
+    gap: 20px;
+    bottom: 100px;
+    left: 10%;
+    z-index: 500;
+}
+
+.arrows button {
+    padding: 15px;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 500;
+    border: 1px solid #ffffff;
+    outline: none;
+    border-radius: 15px;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    background: transparent;
+    cursor: pointer;
+}
+
+.arrows button:active {
+    color: #ff4400a1;
+}
+
+/* The beautiful way nesting elements */
+/* .first {
+    width: 100%;
+    background-color: greenyellow;
+    & .second {
+        width: 80%;
+        background-color: red;
+        & .third {
+            width: 60%;
+            background-color: purple;
+            & h1, h2, h3, h4, h5, h6 {
+                width: fit-content;
+            }
+            & h1 {
+                top: 0;
+                background-color: yellowgreen;
+            }
+            & h2 {
+                top: 45px;
+                background-color: navy;
+            }
+            & h3 {
+                top: 80px;
+                background-color: yellow;
+            }
+            & h4 {
+                top: 110px;
+                background-color: green;
+            }
+            & h5 {
+                top: 135px;
+                background-color: cyan;
+            }
+            & h6 {
+                top: 155px;
+                background-color: orange;
+            }
+        }
+    }
+} */
+
